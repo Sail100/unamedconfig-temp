@@ -3,9 +3,8 @@
     Made by Sail100 and OuterScripts.
     Render by SystemXVoid.
     Credits to SystemXVoid for the uninstaller code.
--]]
-
-local goodexecutor
+]]
+local goodexecutor = '!'
 local VERISON = 'BETA'
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installion UI is loading.."})
