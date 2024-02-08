@@ -104,26 +104,23 @@ function goodexecutorlol()
          local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(goodexecutor and 'Profiles')..'/'..v}).Body
 	        if v:find('vapeprofiles') and isfile('vape/Profiles/'..v) then
 	            local onlinedata = httpService:JSONDecode(contents)
-				local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
-				local default = true
-						for i2, v2 in next, onlinedata do 
-							if localdata[i2] == nil or v2.Selected then 
-								if not default then 
-									default = (v2.Selected ~= true) 
-								end
-								localdata[i2] = {Selected = v2.Selected or localdata[i2].Selected, Keybind = v2.Keybind == '' and localdata[i2].Keybind or v2.Keybind}
-							end
-						end
-						localdata.default = (localdata.default or {Selected = default, Keybind = ''})
-						localdata.default.Selected = default
-						writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata)) 
-					end
+		    local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
+		    local default = true
+			for i2, v2 in next, onlinedata do 
+			   if localdata[i2] == nil or v2.Selected then 
+	                       if not default then 
+				   default = (v2.Selected ~= true) 
 				end
-			end
+				localdata[i2] = {Selected = v2.Selected or localdata[i2].Selected, Keybind = v2.Keybind == '' and localdata[i2].Keybind or v2.Keybind}
+				end
+			    end
+			     localdata.default = (localdata.default or {Selected = default, Keybind = ''})
+			     localdata.default.Selected = default
+			     writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata)) 
+			else
+	                      writefile('vape/Profiles/'..v, contents)
 		end
 	end
-else
-	writefile('vape/Profiles/'..v, contents)
 end
 
 function uninstall()
