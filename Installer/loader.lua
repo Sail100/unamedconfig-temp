@@ -6,6 +6,7 @@
 ]]
 local goodexecutor = '!'
 local VERISON = 'BETA'
+local checked = false
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installion UI is loading.."})
 local lplr = game.Players.LocalPlayer
@@ -17,9 +18,20 @@ local isfile = isfile or function(file)
     return success and type(filecontents) == 'string'
 end 
 
-if executor ~= 'Fluxus' or 'Delta' then -- only good executor lmao
-      lplr:Kick("Your executor:" ..executor.. " isnt supported! Use Fluxus.")
+if executor ~= 'Fluxus' then -- only good executor lmao
+      lplr:Kick("Your executor: " ..executor.. " isnt supported! Use Fluxus.")
+      checked = true
 end
+
+task.wait(2)
+
+if not checked then
+     if executor ~= 'Delta' then
+             lplr:Kick("Your executor: " ..executor.. " isnt supported! Use Fluxus or Delta.")
+             checked = true
+	end
+end
+
 
 function notify(name, text)
   OrionLib:MakeNotification({
