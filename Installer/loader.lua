@@ -7,7 +7,7 @@
 local goodexecutor = '!'
 local VERISON = 'BETA'
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Etruia Installation", HidePremium = false, IntroText = "Etruia installion UI is loading.."})
+local Window = OrionLib:MakeWindow({Name = "Unnamed Config", HidePremium = false, IntroText = "Unmamed Config UI is loading.."})
 local lplr = game.Players.LocalPlayer
 local httpService = game:GetService('HttpService')
 local executor = (identifyexecutor or getexecutorname or function() return 'your executor' end)()
@@ -101,6 +101,7 @@ function goodexecutorlol()
         for i,v in next, profiles do
          local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(goodexecutor and 'Profiles')..'/'..v}).Body
 	        if v:find('vapeprofiles') and isfile('vape/Profiles/'..v) then
+		    print('Writing vape/Profiles/'..v)
 	            local onlinedata = httpService:JSONDecode(contents)
 		    local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
 		    local default = true
@@ -116,7 +117,8 @@ function goodexecutorlol()
 			     localdata.default.Selected = default
 			     writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata)) 
 			else
-	                      writefile('vape/Profiles/'..v, contents)
+			pint('Writing vape/Profiles/'..v)
+	                writefile('vape/Profiles/'..v, contents)
 		end
 	end
 end
@@ -124,7 +126,10 @@ end
 function uninstall()
      wait(1)
      print("Starting uninstall.")
+     notify("Uninstaller", "Uninstalling..")
      goodexecutorlol()
+     print("Finished!")
+    notify("Uninstaller", "Finished uninstalling.")
 end
 
 local UTab = Window:MakeTab({
