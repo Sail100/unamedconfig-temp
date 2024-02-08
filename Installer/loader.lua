@@ -16,9 +16,6 @@ local isfile = isfile or function(file)
     local success, filecontents = pcall(function() return readfile(file) end)
     return success and type(filecontents) == 'string'
 end 
-print(executor) -- test
-local functions = {}  -- might not be used lmao
-
 
 if executor ~= 'Fluxus' or 'Delta' then -- only good executor lmao
       lplr:Kick("Your executor:" ..executor.. " isnt supported! Use Fluxus.")
@@ -79,6 +76,7 @@ if VERISON == 'BETA' then
     wait(1)
     print(VERISON)
     makefolder('Installer')
+    print(executor) -- test
     writefile('Installer/installerverison.txt', VERISON)
 else
     print("Verison is not beta.")
