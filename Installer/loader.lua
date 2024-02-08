@@ -92,10 +92,10 @@ function goodexecutorlol()
      local profileCache = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/'..(goodexecutor and 'Profiles')}).Body) 
      for i,v in next, profileCache do -- next might not be needed
             assert(v.name, 'no name found lol')
-			table.insert(profiles, v.name) 
+	    table.insert(profiles, v.name) 
      end
      renderProfilesLoaded = true
-	 task.wait(0.5)
+     task.wait(0.5)
 	
 	repeat task.wait() until renderProfilesLoaded
 	
