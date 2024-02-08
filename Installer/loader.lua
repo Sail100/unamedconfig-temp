@@ -84,50 +84,11 @@ else
     writefile('Installer/installerverison.txt', VERISON)
 end
 
-function goodexecutorlol()
-     local renderProfilesLoaded
-     local profiles = {}
-     local profileCache = httpService:JSONDecode(httprequest({Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/'..(goodexecutor and 'Profiles')}).Body) 
-     for i,v in next, profileCache do -- next might not be needed
-            assert(v.name, 'no name found lol')
-	    table.insert(profiles, v.name) 
-     end
-     renderProfilesLoaded = true
-     task.wait(0.5)
-	
-repeat task.wait() until renderProfilesLoaded
-	
-	local profiles = {}
-        for i,v in next, profiles do
-         local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(goodexecutor and 'Profiles')..'/'..v}).Body
-	        if v:find('vapeprofiles') and isfile('vape/Profiles/'..v) then
-	            local onlinedata = httpService:JSONDecode(contents)
-		    local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
-		    local default = true
-			for i2, v2 in next, onlinedata do 
-			   if localdata[i2] == nil or v2.Selected then 
-	                       if not default then 
-				   default = (v2.Selected ~= true) 
-				end
-				localdata[i2] = {Selected = v2.Selected or localdata[i2].Selected, Keybind = v2.Keybind == '' and localdata[i2].Keybind or v2.Keybind}
-				end
-			    end
-			     localdata.default = (localdata.default or {Selected = default, Keybind = ''})
-			     localdata.default.Selected = default
-			     writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata)) 
-			     print('Writing vape/Profiles/'..v)
-			else
-			print('Writing vape/Profiles/'..v)
-	                writefile('vape/Profiles/'..v, contents)
-		end
-	end
-end
-
 function uninstall()
      wait(1)
      print("Starting uninstall.")
      notify("Uninstaller", "Uninstalling..")
-     goodexecutorlol()
+     
      print("Finished!")
     notify("Uninstaller", "Finished uninstalling.")
 end
@@ -142,7 +103,7 @@ local UTab = Window:MakeTab({
 UTab:AddButton({
     Name = "Remove",
 	Callback = function()
-         uninstall()
+         lplr:Kick("In development! [Just reinstall Render for now.]")
   	end    
 })
 
