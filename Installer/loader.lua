@@ -81,7 +81,7 @@ if VERISON == 'BETA' then
     print(VERISON)
     makefolder('Installer')
     writefile('Installer/installerverison.txt', VERISON)
-    else
+else
     print("Verison is not beta.")
     makefolder('Installer')
     writefile('Installer/installerverison.txt', VERISON)
@@ -118,10 +118,13 @@ function goodexecutorlol()
 						localdata.default = (localdata.default or {Selected = default, Keybind = ''})
 						localdata.default.Selected = default
 						writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata)) 
-				else
-					writefile('vape/Profiles/'..v, contents)
-	      end
-    end
+					end
+				end
+			end
+		end
+	end
+else
+	writefile('vape/Profiles/'..v, contents)
 end
 
 function uninstall()
@@ -134,7 +137,7 @@ local UTab = Window:MakeTab({
 	Name = "Uninstall",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
- })
+})
 
 
 UTab:AddButton({
