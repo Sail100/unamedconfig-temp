@@ -17,7 +17,7 @@ local isfile = isfile or function(file)
     return success and type(filecontents) == 'string'
 end 
 
-if executor == 'Fluxus' or 'Delta' then -- only good executor lmao
+if executor ~= 'Fluxus' then -- only good executor lmao
       lplr:Kick("Your executor: " ..executor.. " isnt supported! Use Fluxus.")
 end
 
