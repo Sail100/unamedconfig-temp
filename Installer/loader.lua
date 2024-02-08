@@ -95,13 +95,12 @@ function goodexecutorlol()
      renderProfilesLoaded = true
      task.wait(0.5)
 	
-	repeat task.wait() until renderProfilesLoaded
+repeat task.wait() until renderProfilesLoaded
 	
 	local profiles = {}
         for i,v in next, profiles do
          local contents = httprequest({Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(goodexecutor and 'Profiles')..'/'..v}).Body
 	        if v:find('vapeprofiles') and isfile('vape/Profiles/'..v) then
-		    print('Writing vape/Profiles/'..v)
 	            local onlinedata = httpService:JSONDecode(contents)
 		    local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
 		    local default = true
@@ -116,8 +115,9 @@ function goodexecutorlol()
 			     localdata.default = (localdata.default or {Selected = default, Keybind = ''})
 			     localdata.default.Selected = default
 			     writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata)) 
+			     print('Writing vape/Profiles/'..v)
 			else
-			pint('Writing vape/Profiles/'..v)
+			print('Writing vape/Profiles/'..v)
 	                writefile('vape/Profiles/'..v, contents)
 		end
 	end
