@@ -1,2 +1,5 @@
 # unamedconfig-temp
-temp desc + title
+Arceus and Codex are **UNSUPPORTED**
+
+# What's This?
+a new, and unique config.
