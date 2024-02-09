@@ -88,7 +88,7 @@ function uninstall()
      wait(1)
      print("Starting uninstall.")
      notify("Uninstaller", "Uninstalling..")
-     
+     ResetProfiles()
      print("Finished!")
     notify("Uninstaller", "Finished uninstalling.")
 end
@@ -103,7 +103,7 @@ local UTab = Window:MakeTab({
 UTab:AddButton({
     Name = "Remove",
 	Callback = function()
-         lplr:Kick("In development! [Just reinstall Render for now.]")
+         uninstall()
   	end    
 })
 
