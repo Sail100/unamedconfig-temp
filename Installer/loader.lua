@@ -18,7 +18,7 @@ local isfile = isfile or function(file)
 end 
 
 if executor ~= 'Fluxus' then -- only good executor lmao
-      lplr:Kick("Your executor: " ..executor.. " isnt supported! Use Fluxus.")
+      lplr:Kick("Your executor: "..executor " isnt supported! Use Fluxus.")
 end
 
 function notify(name, text)
@@ -77,6 +77,7 @@ if VERISON == 'BETA' then
     print(VERISON)
     makefolder('Installer')
     print(executor) -- test
+	setclipboard(executor) -- test
     writefile('Installer/installerverison.txt', VERISON)
 else
     print("Verison is not beta.")
