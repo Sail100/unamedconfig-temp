@@ -6,7 +6,6 @@
 ]]
 local goodexecutor = '!'
 local VERISON = 'BETA'
-local finishedInstall
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Unnamed Config", HidePremium = false, IntroText = "Unmamed Config UI is loading.."})
 local lplr = game.Players.LocalPlayer
@@ -17,7 +16,6 @@ local isfile = isfile or function(file)
     local success, filecontents = pcall(function() return readfile(file) end)
     return success and type(filecontents) == 'string'
 end 
-local goodexecutorsupport = true
 
 if executor ~= 'Fluxus' then -- only good executor lmao
       lplr:Kick("Your executor: "..executor.. " isnt supported! Use Fluxus.")
@@ -74,30 +72,7 @@ function ResetProfiles()
 end
 
 function testUninstaller()
-local profiles = {}
-local files = httpService:JSONDecode(httprequest({ Url = 'https://api.github.com/repos/SystemXVoid/Render/contents/Libraries/Profiles/'..(goodexecutorsupport and "Profiles")}).Body) --getting profiles, shit executors wil not be supported.
-for i,v in next, files do 
-   table.insert(profiles, v.Name)
-end
-task.wait(0.5)
-
-repeat task.wait() until finishedInstall
-
- for i,v in next, profiles do
-  local profilesCompleted = {}
-  local contents = httpService:JSONDecode(httprequest({ Url = 'https://raw.githubusercontent.com/SystemXVoid/Render/source/Libraries/'..(goodexecutorsupport and "Profiles")..'/'..v}).Body)
-  if v:find("vapeprofiles" and isfile('vape/Profiles/'..v)) then
-    local onlinedata = httpService:JSONDecode(contents)
-    local localdata = httpService:JSONDecode(readfile('vape/Profiles/'..v))
-  	print("Found!")
-   	print("Writen: vape/Profiles/"..v)
-    	writefile('vape/Profiles/'..v, httpService:JSONEncode(localdata)) 
-  else
-   	 print("Writen: vape/Profiles/"..v)
-  	  writefile('vape/Profiles/'..v, contents) 
-  	end
-    end
-finishedInstall = true
+	lplr:Kick("Reinstall Render.")
 end
 
 if VERISON == 'BETA' then
