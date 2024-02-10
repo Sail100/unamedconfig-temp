@@ -106,7 +106,6 @@ if VERISON == 'BETA' then
     print(VERISON)
     makefolder('Installer')
     print(executor) -- test
-    setclipboard(executor) -- test
     writefile('Installer/installerverison.txt', VERISON)
 else
     print("Verison is not beta.")
