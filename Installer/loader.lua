@@ -41,7 +41,7 @@ end
 
 function exeTest()
     if not isfile or readfile or makefolder or writefile or delfile then
-		lplr:Kick("Executor does not support isfile, use Fluxus or Delta.")
+		lplr:Kick("not supported")
 	else
         print("executor is supported")
     end
