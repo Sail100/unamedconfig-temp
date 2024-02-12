@@ -55,7 +55,7 @@ function ResetProfiles()
     else
         print("Render Profiles already installed.")
         delfolder('vape/Profiles')
-        task,wait(0.1)
+        task.wait(0.1)
         makefolder('vape/Profiles')
     end
 end
