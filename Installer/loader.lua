@@ -19,13 +19,13 @@ local isfile = isfile or function(file)
 end 
 
 if executor ~= 'Fluxus' then -- only good executor lmao
-    lplr:Kick("Your executor: "..executor.. " isnt supported! Use Fluxus.")
+    lplr:Kick("Your executor isnt supported! Use Fluxus.")
 else
     notify("Installer", "supported, executor: "..executor)
 end
 
 local function notify(name, text)
-  OrionLib:MakeNotification({
+    OrionLib:MakeNotification({
     Name = name,
     Content = text,
     Image = "rbxassetid://4483345998",
@@ -43,7 +43,7 @@ function exeTest()
     if not isfile or readfile or makefolder or writefile or delfile then
 		lplr:Kick("not supported")
 	else
-        print("executor is supported")
+        notify("Installer", "executor is supported")
     end
 end
 
@@ -67,14 +67,14 @@ end
 if version = 'beta' then
     notify('Installer Warning', 'This installer is in beta. Expect some bugs.')
     task.wait(1)
-    print(VERISON)
+    print("Version: "..version)
     makefolder('Installer')
     setclipboard(executor) -- test
-    writefile('Installer/installerverison.txt', VERISON)
+    writefile('Installer/installerverison.txt', version)
 else
     print("Verison is not beta.")
     makefolder('Installer')
-    writefile('Installer/installerverison.txt', VERISON)
+    writefile('Installer/installerverison.txt', version)
 end
 
 local function uninstall()
