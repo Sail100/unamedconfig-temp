@@ -5,13 +5,14 @@
     Credits to SystemXVoid for the uninstaller code.
 ]]
 local goodexecutor
-local VERISON = 'BETA'
+local version = 'beta'
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Unnamed Config", HidePremium = false, IntroText = "Unmamed Config UI is loading.."})
 local lplr = game.Players.LocalPlayer
 local httpService = game:GetService('HttpService')
 local executor = (identifyexecutor or getexecutorname or function() return 'your executor' end)()
 local httprequest = (http and http.request or http_request or fluxus and fluxus.request or request or function() end)
+local setclipboard = setclipboard or function(data) writefile('clipboard.txt', data) end
 local isfile = isfile or function(file)
     local success, filecontents = pcall(function() return readfile(file) end)
     return success and type(filecontents) == 'string'
@@ -23,7 +24,7 @@ else
     notify("Installer", "supported, executor: "..executor)
 end
 
-function notify(name, text)
+local function notify(name, text)
   OrionLib:MakeNotification({
     Name = name,
     Content = text,
@@ -39,25 +40,11 @@ function section(sectionname, tab, text)
 end
 
 function exeTest()
-      if not isfile then
+    if not isfile or readfile or makefolder or writefile or delfile then
 		lplr:Kick("Executor does not support isfile, use Fluxus or Delta.")
-	end
-
-	if not readfile then
-		lplr:Kick("Executor does not support readfile, use Fluxus or Delta.")
-	end
-
-	if not makefolder then
-		lplr:Kick("Executor does not support makefolder, use Fluxus or Delta.")
-	end
-
-	if not writefile then
-		lplr:Kick("Executor does not support writefile, use Fluxus or Delta.")
-	end
-
-	if not delfile then
-		lplr:Kick("Executor does not support delfile, use Fluxus or Delta")
-	end
+	else
+        print("executor is supported")
+    end
 end
 
 exeTest()
@@ -77,12 +64,12 @@ function testUninstaller()
 	lplr:Kick("Reinstall Render.")
 end
 
-if VERISON == 'BETA' then
-    notify('Installer Warning', 'This installer is in BETA. Expect some bugs.')
-    wait(1)
+if version = 'beta' then
+    notify('Installer Warning', 'This installer is in beta. Expect some bugs.')
+    task.wait(1)
     print(VERISON)
     makefolder('Installer')
-    print(executor) -- test
+    setclipboard(executor) -- test
     writefile('Installer/installerverison.txt', VERISON)
 else
     print("Verison is not beta.")
@@ -90,7 +77,7 @@ else
     writefile('Installer/installerverison.txt', VERISON)
 end
 
-function uninstall()
+local function uninstall()
     repeat task.wait() until uninstalled == true
     print("Starting uninstall.")
     notify("Uninstaller", "Uninstalling..")
