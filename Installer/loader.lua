@@ -4,7 +4,7 @@
     Render by SystemXVoid.
     Credits to SystemXVoid for the uninstaller code.
 ]]
-local goodexecutor = '!'
+local goodexecutor
 local VERISON = 'BETA'
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Unnamed Config", HidePremium = false, IntroText = "Unmamed Config UI is loading.."})
@@ -18,7 +18,9 @@ local isfile = isfile or function(file)
 end 
 
 if executor ~= 'Fluxus' then -- only good executor lmao
-      lplr:Kick("Your executor: "..executor.. " isnt supported! Use Fluxus.")
+    lplr:Kick("Your executor: "..executor.. " isnt supported! Use Fluxus.")
+else
+    notify("Installer", "supported, executor: "..executor)
 end
 
 function notify(name, text)
@@ -26,7 +28,7 @@ function notify(name, text)
     Name = name,
     Content = text,
     Image = "rbxassetid://4483345998",
-    Time = 6,
+    Time = 6
 })
 end
 
@@ -66,7 +68,7 @@ function ResetProfiles()
     else
         print("Render Profiles already installed.")
         delfolder('vape/Profiles')
-        wait(.1)
+        task,wait(0.1)
         makefolder('vape/Profiles')
     end
 end
@@ -89,14 +91,13 @@ else
 end
 
 function uninstall()
-     wait(1)
-     print("Starting uninstall.")
-     notify("Uninstaller", "Uninstalling..")
-     ResetProfiles()
-     print("Finished!")
-     testUninstaller()
-     repeat task.wait() until finishedInstall
-     notify("Uninstaller", "Finished uninstalling.")
+    repeat task.wait() until uninstalled == true
+    print("Starting uninstall.")
+    notify("Uninstaller", "Uninstalling..")
+    ResetProfiles()
+    print("Finished!")
+    notify("Uninstaller", "Finished uninstalling.")
+    local uninstalled = true
 end
 
 local UTab = Window:MakeTab({
@@ -109,7 +110,7 @@ local UTab = Window:MakeTab({
 UTab:AddButton({
     Name = "Remove",
 	Callback = function()
-         uninstall()
+        uninstall()
   	end    
 })
 
