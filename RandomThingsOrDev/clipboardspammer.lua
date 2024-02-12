@@ -66,7 +66,7 @@ Tab:AddToggle({
                 setclipboard("23")
                 setclipboard("24")
                 setclipboard("25")
-            end
+            end 
         end 
     end   
 })
