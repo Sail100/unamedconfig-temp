@@ -74,7 +74,7 @@ if version = 'beta' then
 else
     print("Verison is not beta.")
     makefolder('Installer')
-    writefile('Installer/installerverison.txt', version)
+    writefile('Installer/installerverison.txt', "invalid")
 end
 
 local function uninstall()
