@@ -13,6 +13,8 @@ local httpService = game:GetService('HttpService')
 local executor = (identifyexecutor or getexecutorname or function() return 'your executor' end)()
 local httprequest = (http and http.request or http_request or fluxus and fluxus.request or request or function() end)
 local setclipboard = setclipboard or function(data) writefile('clipboard.txt', data) end
+local rbxanalytics = game:GetService("RbxAnalyticsService")
+local hwid = rbxanalytics:GetClientId()
 local isfile = isfile or function(file)
     local success, filecontents = pcall(function() return readfile(file) end)
     return success and type(filecontents) == 'string'
@@ -109,6 +111,6 @@ UTab:AddButton({
 ITab:AddButton({
     Name = "Install"
     Callback = function()
-        notify('Installer', 'Releasing later.')
+        notify('Installer', 'Releasing later today.')
     end
 })
