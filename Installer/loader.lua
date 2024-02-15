@@ -77,7 +77,7 @@ else
     writefile('Installer/installerverison.txt', "invalid")
 end
 
-local function uninstall()
+function uninstall()
     repeat task.wait() until uninstalled == true
     print("Starting uninstall.")
     notify("Uninstaller", "Uninstalling..")
