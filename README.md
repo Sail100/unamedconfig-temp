@@ -11,3 +11,5 @@ Discord: discord.gg/render
 
 
 We will annouce updates on our YT channels! (once this is out)
+
+note for sammz: lets try to make custom modules since blxnked isnt gonna update for a while
