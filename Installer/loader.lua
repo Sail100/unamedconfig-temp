@@ -93,7 +93,11 @@ local UTab = Window:MakeTab({
 	PremiumOnly = false
 })
 
-
+local ITab = Window:MakeTab({
+    Name = "Install",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
 UTab:AddButton({
     Name = "Remove",
 	Callback = function()
@@ -101,4 +105,10 @@ UTab:AddButton({
   	end    
 })
 
-OrionLib:Init()
+
+ITab:AddButton({
+    Name = "Install"
+    Callback = function()
+        notify('Installer', 'Releasing later.')
+    end
+})
