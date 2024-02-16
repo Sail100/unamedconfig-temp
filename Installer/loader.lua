@@ -226,6 +226,15 @@ Tabs.Credits:AddButton({
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+
+Tabs.Main:AddButton({
+    Title = "Install",
+    Description = "Installs the config.",
+    Callback = function()
+		notify('Orion UI', '"Orion UI" wasnt found.'
+	end
+})
+
 SaveManager:BuildConfigSection(Tabs.Settings)
 
 Fluent:Notify({
