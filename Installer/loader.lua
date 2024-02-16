@@ -227,9 +227,9 @@ SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
 InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 
-Tabs.Main:AddButton({
-    Title = "Install",
-    Description = "Installs the config.",
+Tabs.Settings:AddButton({
+    Title = "Load Orion UI",
+    Description = "different ui",
     Callback = function()
 		notify('Orion UI', '"Orion UI" wasnt found.'
 	end
