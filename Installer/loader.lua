@@ -27,9 +27,8 @@ local isfile = isfile or function(file)
     return success and type(filecontents) == 'string'
 end 
 
-
 local Window = Fluent:CreateWindow({
-    Title = "unnamedconfig " .. version,
+    Title = "Unnamedconfig " .. version,
     SubTitle = "by sammz and outer",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
@@ -83,6 +82,15 @@ function copiednotification()
     })
 end
 
+function exeTest()
+    if not readfile or makefolder or writefile or delfile then
+		lplr:Kick("Executor: " ..executor.. " doesnt support some functions!")
+	else
+        notify("Installer", "Executor is supported")
+    end
+end
+
+exeTest()
 
 function ResetProfiles()
     if not isfolder('vape/Profiles') then
