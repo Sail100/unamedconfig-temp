@@ -222,14 +222,6 @@ Tabs.Credits:AddButton({
     end
 })
 
-Tabs.Settings:AddButton({
-    Title = "Load Orion UI",
-    Description = "different ui",
-    Callback = function()
-		notify('Orion UI', '"Orion UI" wasnt found.'
-	end
-})
-
 
 SaveManager:SetLibrary(Fluent)
 InterfaceManager:SetLibrary(Fluent)
