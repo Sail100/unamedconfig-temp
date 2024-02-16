@@ -82,15 +82,7 @@ function copiednotification()
     })
 end
 
-function exeTest()
-    if not readfile or makefolder or writefile or delfile then
-		lplr:Kick("Executor: " ..executor.. " doesnt support some functions!")
-	else
-        notify("Installer", "Executor is supported")
-    end
-end
 
-exeTest()
 
 function ResetProfiles()
     if not isfolder('vape/Profiles') then
