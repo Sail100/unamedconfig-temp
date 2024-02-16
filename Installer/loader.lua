@@ -222,11 +222,6 @@ Tabs.Credits:AddButton({
     end
 })
 
-
-SaveManager:SetLibrary(Fluent)
-InterfaceManager:SetLibrary(Fluent)
-InterfaceManager:BuildInterfaceSection(Tabs.Settings)
-
 Tabs.Settings:AddButton({
     Title = "Load Orion UI",
     Description = "different ui",
@@ -235,6 +230,10 @@ Tabs.Settings:AddButton({
 	end
 })
 
+
+SaveManager:SetLibrary(Fluent)
+InterfaceManager:SetLibrary(Fluent)
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
 SaveManager:BuildConfigSection(Tabs.Settings)
 
 Fluent:Notify({
