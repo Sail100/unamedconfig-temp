@@ -132,7 +132,7 @@ Tabs.Main:AddButton({
                         
                         writefile('vape/Profiles/6872274481.vapeprofile.txt', File1)
                         writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File2)
-                        writefile('6872265039.vapeprofile.txt', File3)
+                        writefile('vape/Profiles/6872265039.vapeprofile.txt', File3)
                         
                         Fluent:Notify({
                             Title = "Install",
