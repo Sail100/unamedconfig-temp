@@ -85,14 +85,9 @@ end
 
 
 function ResetProfiles()
-    if not isfolder('vape/Profiles') then
-        makefolder('vape/Profiles')
-    else
-        print("Render Profiles already installed.")
-        delfolder('vape/Profiles')
-        task.wait(0.1)
-        makefolder('vape/Profiles')
-    end
+    delfolder('vape/Profiles')
+    task.wait(0.1)
+    makefolder('vape/Profiles')
 end
 
 function testUninstaller()
