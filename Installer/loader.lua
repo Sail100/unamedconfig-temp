@@ -138,7 +138,7 @@ Tabs.Main:AddButton({
                                     {
                                         Title = "Yes!",
                                         Callback = function()
-                                            loadfile("vape/NewMainScript.lua")
+                                            loadfile("vape/NewMainScript.lua")()
                                         end
                                     },
                                     {
