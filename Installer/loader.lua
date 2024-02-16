@@ -1,9 +1,12 @@
 --[[
+
     Unnamed Render Config.
     Made by Sail100 and OuterScripts.
     Render by SystemXVoid.
-    Credits to SystemXVoid for the uninstaller code.
+    Credits to SystemXVoid for for some local stuff
+    
 ]]
+
 local goodexecutor
 local version = 'beta'
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -16,6 +19,9 @@ local httprequest = (http and http.request or http_request or fluxus and fluxus.
 local setclipboard = setclipboard or function(data) writefile('clipboard.txt', data) end
 local rbxanalytics = game:GetService("RbxAnalyticsService")
 local hwid = rbxanalytics:GetClientId()
+local File1 = game:HttpGet("https://raw.githubusercontent.com/Sail100/unamedconfig-temp/main/Installer/Profiles/6872274481.vapeprofile.txt")
+local File2 = game:HttpGet("https://raw.githubusercontent.com/Sail100/unamedconfig-temp/main/Installer/Profiles/6872265039GUIPositions.vapeprofile.txt")
+local File3 = game:HttpGet("https://raw.githubusercontent.com/Sail100/unamedconfig-temp/main/Installer/Profiles/6872265039.vapeprofile.txt")
 local isfile = isfile or function(file)
     local success, filecontents = pcall(function() return readfile(file) end)
     return success and type(filecontents) == 'string'
@@ -114,13 +120,55 @@ Tabs.Main:AddButton({
     Description = "Installs the config.",
     Callback = function()
         Window:Dialog({
-            Title = "Uninstall",
+            Title = "Install",
             Content = "Are you sure you want to proceed?",
             Buttons = {
                 {
                     Title = "Confirm",
                     Callback = function()
-                        failnotification()
+                        if isfile('vape/Profiles/6872265039.vapeprofile.txt') then
+                            delfile('vape/Profiles/6872265039.vapeprofile.txt')
+                        end
+                        if isfile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt') then
+                            delfile('6872265039GUIPositions.vapeprofile.txt')
+                        end
+                        if isfile('vape/Profiles/6872274481.vapeprofile.txt') then
+                            delfile('vape/Profiles/6872274481.vapeprofile.txt')
+                        end
+                        
+                        
+                        writefile('vape/Profiles/6872274481.vapeprofile.txt', File1)
+                        writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File2)
+                        writefile('6872265039.vapeprofile.txt', File3)
+                        
+                        Fluent:Notify({
+                            Title = "Install",
+                            Content = "Finished Installing!",
+                            Duration = 5 -- Set to nil to make the notification not disappear
+                        })
+                        
+                        task.wait(2)
+                        
+                        do
+                            Window:Dialog({
+                                Title = "Installer",
+                                Content = "Do you want to load Render?",
+                                Buttons = {
+                                    {
+                                        Title = "Yes!",
+                                        Callback = function()
+                                            loadfile("vape/NewMainScript.lua")
+                                        end
+                                    },
+                                    {
+                                        Title = "No.",
+                                        Callback = function()
+                                            cancelnotification()
+                                        end
+                                    }
+                                }
+                            })
+                        end
                     end
                 },
                 {
