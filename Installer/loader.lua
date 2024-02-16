@@ -38,8 +38,8 @@ local Window = Fluent:CreateWindow({
 })
 
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "" }),
-    Credits = Window:AddTab({ Title = "Credits", Icon = "" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "braces" }),
+    Credits = Window:AddTab({ Title = "Credits", Icon = "badge-check" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
