@@ -27,11 +27,6 @@ local isfile = isfile or function(file)
     return success and type(filecontents) == 'string'
 end 
 
-if executor ~= 'Fluxus' then -- only good executor lmao
-    lplr:Kick("Your executor isnt supported! Use Fluxus.")
-else
-    notify("Installer", "supported, executor: "..executor)
-end
 
 local Window = Fluent:CreateWindow({
     Title = "unnamedconfig " .. version,
@@ -64,6 +59,15 @@ function notify(name, text)
         Duration = 5 -- Set to nil to make the notification not disappear
     })
 end
+
+if executor ~= 'Fluxus' then -- only good executor lmao
+    lplr:Kick("Your executor isnt supported! Use Fluxus.")
+end
+
+if executor == 'Fluxus' then
+    notify("Installer", "supported, executor: "..executor)
+end
+
 
 function failnotification()
     Fluent:Notify({
