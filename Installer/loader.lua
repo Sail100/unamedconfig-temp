@@ -119,16 +119,7 @@ Tabs.Main:AddButton({
                 {
                     Title = "Confirm",
                     Callback = function()
-                        if isfile('vape/Profiles/6872265039.vapeprofile.txt') then
-                            delfile('vape/Profiles/6872265039.vapeprofile.txt')
-                        end
-                        if isfile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt') then
-                            delfile('6872265039GUIPositions.vapeprofile.txt')
-                        end
-                        if isfile('vape/Profiles/6872274481.vapeprofile.txt') then
-                            delfile('vape/Profiles/6872274481.vapeprofile.txt')
-                        end
-                        
+                        ResetProfiles()
                         
                         writefile('vape/Profiles/6872274481.vapeprofile.txt', File1)
                         writefile('vape/Profiles/6872265039GUIPositions.vapeprofile.txt', File2)
