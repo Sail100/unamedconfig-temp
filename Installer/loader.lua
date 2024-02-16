@@ -100,11 +100,8 @@ function testUninstaller()
 end
 
 function uninstall()
-    repeat task.wait() until uninstalled == true
     ResetProfiles()
-    print("Finished!")
     notify("Uninstaller", "Finished uninstalling.")
-    local uninstalled = true
 end
 
 
