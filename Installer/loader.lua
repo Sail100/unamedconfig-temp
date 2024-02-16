@@ -178,6 +178,7 @@ Tabs.Main:AddButton({
                     Title = "Confirm",
                     Callback = function()
                         uninstall()
+						notify('Uninstall', 'Finished!')
                     end
                 },
                 {
