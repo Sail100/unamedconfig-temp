@@ -62,9 +62,7 @@ end
 
 if executor ~= 'Fluxus' then -- only good executor lmao
     lplr:Kick("Your executor isnt supported! Use Fluxus.")
-end
-
-if executor == 'Fluxus' then
+else
     notify("Installer", "supported, executor: "..executor)
 end
 
