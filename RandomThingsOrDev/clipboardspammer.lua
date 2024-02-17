@@ -1,4 +1,3 @@
--- this spams your clipboard
 local setclipboard = setclipboard or function(data) writefile('clipboard.txt', data) end
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Clipboard Spammer", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest"})
@@ -13,8 +12,8 @@ Tab:AddToggle({
 	Name = "Spammer",
 	Default = false,
 	Callback = function(callback)
-        if callback then
-            repeat
+        repeat
+			do
                 setclipboard("apple")
                 setclipboard("blanked is cool")
                 setclipboard("champion is weird")
