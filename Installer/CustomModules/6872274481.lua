@@ -13408,7 +13408,7 @@ runFunction(function()
 	local RaceFinder = {}
 	RaceFinder = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
 		Name = 'RaceFinder',
-		HoverText = 'finds your skin color, can kick.\nBedrockXEtruia feature',
+		HoverText = 'finds your skin color\nBedrockXEtruia feature',
 		Function = function(calling)
 			if calling then
 				repeat
