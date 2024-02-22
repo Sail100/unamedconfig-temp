@@ -2,7 +2,7 @@
 Welcome to unnamedconfig. here, [me](https://youtube.com/@kwlzi) and [outer](https://youtube.com/@OuterScripts) wanted to make a config together. 
 
 # Beta
-heres the [ui lib](https://github.com/dawid-scripts/Fluent/tree/master) cause im being accused of "skidding"
+Want to use the ui? Here's the [ui library](https://github.com/dawid-scripts/Fluent/)
 ```lua
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Sail100/unamedconfig-temp/main/Installer/loader.lua"))()
 ```
@@ -10,10 +10,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Sail100/unamedconfig-
 a new, and unique config.
 
 Tutorial: (soon)
-Installer: (soon)
-Discord: discord.gg/render
+Installer: Beta
+Discord: [discord.gg/render](https://discord.gg/render)
 
-We will annouce updates on our YT channels! (once this is out)
-
-# Render
-[render](https://discord.gg/render) is needed for this.
+We will annouce updates on our YT channels! (once this is fully out)

@@ -13404,6 +13404,49 @@ runFunction(function()
 	autowinwhitelisted.Object.Visible = false
 end)
 
+runFunction(function()
+	local RaceFinder = {}
+	RaceFinder = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+		Name = 'RaceFinder',
+		HoverText = 'finds your skin color, can kick.\nBedrockXEtruia feature',
+		Function = function(calling)
+			if calling then
+				repeat
+					task.wait(5)
+					local random = math.random(0, 5)
+					local message = ""
+				
+					if random == 0 then
+						message = "as black as blackion"
+					end
+				
+					if random ~= 0 then
+						message = "as white as a marshmellow"
+					end
+				
+					if random == 2 then
+						message = "White"
+					end
+				
+					if random == 3 then
+						message = "Black"
+					end
+				
+					if random == 4 then
+						message = "detected femboy, white"
+					end
+
+					if random == 5 then
+						message = "Unable to find race, try again!"
+					end
+
+					InfoNotification("RaceFinder", "Found Skin Color: "..message, 5)
+				until not RaceFinder.Enabled
+			end
+		end
+	})
+end)
+
 makefolder('vape/'..clientname)
 writefile('vape/'..clientname..'/clientname.txt', 'We have detected: '..clientname..'!')
 
