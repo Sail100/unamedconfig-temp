@@ -13449,6 +13449,6 @@ end)
 
 makefolder('vape/'..clientname)
 writefile('vape/'..clientname..'/clientname.txt', 'We have detected: '..clientname..'!')
-
-
+writefile('vape/'..clientname..'/')
+warningNotification(""..clientname, "If you want the new legit update, reinstall Render and download another config.")
 InfoNotification('Render', 'Loaded'..clientname..'!', 3)
