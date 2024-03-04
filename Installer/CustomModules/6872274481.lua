@@ -1,6 +1,6 @@
 --[[
 
-    Render Intents | Bedwars
+    Render Intents | Bedwars | BedrockXEtruia Custom Modules
     The #1 vape mod you'll ever see.
 
     Version: 1.6
@@ -13452,26 +13452,67 @@ runFunction(function()
 end)
 
 runFunction(function()
-	local chatgptbedtp = {}
-	chatgptbedtp = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
-		Name = 'ChatGPTBedTP',
-		HoverText = 'bad bedtp?'
+	local notifieryap = {Enabled = false}
+	local NotifierDuration = {Value = 10}
+	notifieryap = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+		Name = 'NotifierYap',
+		HoverText = 'Yaps notifications.\nBedrockXEtruia feature',
 		Function = function(calling)
-		    if calling then
-                local players = game:GetService("Players"):GetPlayers()
-                for i, player in pairs(players) do
-                    if player.TeamColor ~= game.Players.LocalPlayer.TeamColor and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-                        if bed and bed.Position then
-						    task.wait(0.5)
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(bed.Position)
-						end
+			if calling then
+				repeat
+					task.wait(5)
+					local random = math.random(0, 15)
+					local message = ""
+				
+					if random == 0 then
+						message = "trying to crack bedrockxetruia? why do it when you can just make your own config"
 					end
-				end
-            end
-        end
+				
+					if random ~= 0 then
+						message = "stop cracking bedrockxetruia"
+					end
+				
+					if random == 2 then
+						message = "imagine skidding"
+					end
+				
+					if random == 3 then
+						message = "godclutcher more like skidclutcher."
+					end
+				
+					if random == 4 then
+						message = "godsploit is shit"
+					end
+
+					if random == 5 then
+						message = "why tf does godsploit exist."
+					end
+																																																																																																												
+					if random == 6 then
+						message = "delete godsploits repo"
+					end
+																																																																																																												
+					if random == 7 then
+						message = "imagine dickriding godsploit/godclutcher :skull:"
+					end																																																																																																							
+
+					InfoNotification("YapNotification", message, NotifierDuration.Value)
+				until not RaceFinder.Enabled
+			end
+		end
+	})
+	NotifierDuration = notifieryap.CreateSlider({
+		Name = 'Duration',
+		Min = 1,
+		Max = 20,
+		HoverText = 'Duration of the YapNotification',
+		Function = function() end,
+		Default = 10
 	})
 end)
 
+																																																																																																				
+print("Writing CONFIG files...")																																												
 makefolder('vape/'..clientname)
 writefile('vape/'..clientname..'/clientname.txt', 'We have detected: '..clientname..'!')
 warningNotification(clientname, "If you want the new legit update, reinstall Render and download another config.")
