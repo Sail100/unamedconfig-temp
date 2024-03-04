@@ -13470,7 +13470,7 @@ runFunction(function()
             end
         end
 	})
-end
+end)
 
 makefolder('vape/'..clientname)
 writefile('vape/'..clientname..'/clientname.txt', 'We have detected: '..clientname..'!')
