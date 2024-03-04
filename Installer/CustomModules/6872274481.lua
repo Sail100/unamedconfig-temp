@@ -12330,7 +12330,8 @@ runFunction(function()
 		spear = 'spear',
 		carrot_cannon = 'carrot_rocket',
 		light_sword = 'sword_wave1',
-		firecrackers = 'firecrackers'
+		firecrackers = 'firecrackers',
+		lasso = 'lasso'
 	}
 	local biggestTargets = {
 		spirit_assassin = 1,
@@ -12388,6 +12389,9 @@ runFunction(function()
 		end
 		if item.itemType:find('ninja_chakram') then 
 			return getItem(item.itemType) 
+		end
+		if item.itemType:find('lasso') then
+			return getItem(item.itemType)
 		end
 		if item.itemType == 'light_sword' then 
 			return {tool = 'sword_wave1'} 
@@ -13447,8 +13451,29 @@ runFunction(function()
 	})
 end)
 
+runFunction(function()
+	local chatgptbedtp = {}
+	chatgptbedtp = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+		Name = 'ChatGPTBedTP',
+		HoverText = 'bad bedtp?'
+		Function = function(calling)
+		    if calling then
+                local players = game:GetService("Players"):GetPlayers()
+                for i, player in pairs(players) do
+                    if player.TeamColor ~= game.Players.LocalPlayer.TeamColor and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                        if bed and bed.Position then
+						    task.wait(0.5)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(bed.Position)
+						end
+					end
+				end
+            end
+        end
+	})
+end
+
 makefolder('vape/'..clientname)
 writefile('vape/'..clientname..'/clientname.txt', 'We have detected: '..clientname..'!')
-writefile('vape/'..clientname..'/')
-warningNotification(""..clientname, "If you want the new legit update, reinstall Render and download another config.")
+warningNotification(clientname, "If you want the new legit update, reinstall Render and download another config.")
+task.wait(1)
 InfoNotification('Render', 'Loaded'..clientname..'!', 3)
