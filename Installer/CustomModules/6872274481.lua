@@ -13409,7 +13409,7 @@ runFunction(function()
 end)
 
 runFunction(function()
-	local RaceFinder = {}
+	local RaceFinder = {Enabled = false}
 	RaceFinder = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
 		Name = 'RaceFinder',
 		HoverText = 'finds your skin color\nBedrockXEtruia feature',
@@ -13453,14 +13453,15 @@ end)
 
 runFunction(function()
 	local notifieryap = {Enabled = false}
+	local NotifierWaitTime = {Value = 1}
 	local NotifierDuration = {Value = 10}
-	notifieryap = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+	notifieryap = GuiLibrary.ObjectsThatCanBeSaved.RenderWindow.Api.CreateOptionsButton({
 		Name = 'NotifierYap',
 		HoverText = 'Yaps notifications.\nBedrockXEtruia feature',
 		Function = function(calling)
 			if calling then
 				repeat
-					task.wait(5)
+					task.wait(NotifierWaitTime)
 					local random = math.random(0, 15)
 					local message = ""
 				
@@ -13501,8 +13502,16 @@ runFunction(function()
 			end
 		end
 	})
+	NotifierWaitTime = notifieryap.CreateSlider({
+		Name = 'Slowmode',
+		Min = 1,
+		Max = 10,
+		HoverText = 'Wait time of YapNotification',
+		Function = function() end,
+		Default = 1
+	})
 	NotifierDuration = notifieryap.CreateSlider({
-		Name = 'Duration',
+		Name = 'Notification Duration',
 		Min = 1,
 		Max = 20,
 		HoverText = 'Duration of the YapNotification',
