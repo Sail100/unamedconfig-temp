@@ -13520,7 +13520,58 @@ runFunction(function()
 	})
 end)
 
-																																																																																																				
+runFunction(function()
+	local autoplayertp = {Enabled = false}
+    local autoplayertpwaittime = {Value = 20}
+	
+    local function getRandomPlayer()
+        local players = game.Players:GetPlayers()
+        return players[math.random(1, #players)]
+    end
+
+    local function teleportToRandomPlayer()
+        local targetPlayer = getRandomPlayer()
+        local targetCharacter = targetPlayer.Character
+
+        if targetCharacter then
+            local targetHumanoidRootPart = targetCharacter:FindFirstChild("HumanoidRootPart")
+            if targetHumanoidRootPart then
+                local currentHumanoidRootPart = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                if currentHumanoidRootPart then
+                    currentHumanoidRootPart.CFrame = targetHumanoidRootPart.CFrame * CFrame.new(0, 5, 0)
+				else
+					InfoNotification("AutoBedTP", "Failed!", 3)
+				end
+            else
+				InfoNotification("AutoBedTP", "Failed!", 3)
+			end
+		else
+			InfoNotification("AutoBedTP", "No players were found.", 3)
+		end
+    end
+
+	autoplayertp = GuiLibrary.ObjectsThatCanBeSaved.WorldWindow.Api.CreateOptionsButton({
+		Name = 'AutoPlayerTP',
+		HoverText = 'chatgpt moment',
+		Function = function(calling)
+			if calling then
+				repeat
+					teleportToRandomPlayer()
+					task.wait(autoplayertpwaittime)
+				end
+			end
+		end
+	})
+	autoplayertpwaittime = autoplayertp.CreateSlider({
+		Name = 'Slowmode',
+		Min = 1,
+		Max = 20,
+		HoverText = 'Wait time',
+		Function = function() end,
+		Default = 5
+	})
+end)
+
 print("Writing CONFIG files...")																																												
 makefolder('vape/'..clientname)
 writefile('vape/'..clientname..'/clientname.txt', 'We have detected: '..clientname..'!')
